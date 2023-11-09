@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import { useSelector, useDispatch} from 'react-redux';
 import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import Admin from '../Admin/Admin.jsx'
+import Checkout from '../Checkout/Checkout.jsx'
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
       {/* Customer Information Page */}
 
       {/* Checkout Page */}
+        <Route exact path ="/checkout"><Checkout /></Route>
+        <Route exact path ="/admin"><Admin /></Route>
       </Router>
     </div>
   );
