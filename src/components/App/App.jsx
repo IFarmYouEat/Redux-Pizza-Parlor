@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import { useSelector, useDispatch} from 'react-redux';
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
 
 
   // Customer Information Page
-
+  const customerInfo = useSelector(store => store.customerInfo);
+  const dispatch = useDispatch();
 
   // Checkout Page
 
@@ -26,11 +28,11 @@ function App() {
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
       <Router>
-      {/* Display Pizzas */}
+        {/* Display Pizzas */}
 
-      {/* Customer Information Page */}
-
-      {/* Checkout Page */}
+        {/* Customer Information Page */}
+        <Route exact path="/customerInfo"><CustomerInfo /></Route>
+        {/* Checkout Page */}
       </Router>
     </div>
   );
