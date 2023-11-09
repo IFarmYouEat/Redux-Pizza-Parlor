@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import { useSelector, useDispatch} from 'react-redux';
 import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import Admin from '../Admin/Admin.jsx'
 import Checkout from '../Checkout/Checkout.jsx'
+
 
 
 function App() {
@@ -12,7 +14,8 @@ function App() {
 
 
   // Customer Information Page
-
+  const customerInfo = useSelector(store => store.customerInfo);
+  const dispatch = useDispatch();
 
   // Checkout Page
 
@@ -28,13 +31,17 @@ function App() {
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
       <Router>
-      {/* Display Pizzas */}
+        {/* Display Pizzas */}
 
-      {/* Customer Information Page */}
+
+        {/* Customer Information Page */}
+        <Route exact path="/customerInfo"><CustomerInfo /></Route>
+        {/* Checkout Page */}
 
       {/* Checkout Page */}
         <Route exact path ="/checkout"><Checkout /></Route>
         <Route exact path ="/admin"><Admin /></Route>
+
       </Router>
     </div>
   );
