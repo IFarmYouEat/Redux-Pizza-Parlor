@@ -55,6 +55,7 @@ function App() {
           <PizzaPage 
             pizzaList={pizzaList}
           />
+          <button id="next-btn">NEXT</button>
         </Route>
 
       {/* Customer Information Page */}
