@@ -4,10 +4,37 @@ import './App.css';
 import { useSelector, useDispatch} from 'react-redux';
 import { HashRouter as Router, Route, Link} from 'react-router-dom';
 
+// Ben's Imports
+import PizzaPage from '../PizzaPage/PizzaPage.jsx';
+import Header from '../Header/Header.jsx';
+import ButtonBar from '../ButtonBar/ButtonBar.jsx';
+import { useState, useEffect } from 'react';
+// END Ben's Imports
+
 
 function App() {
-  // Display Pizzas
+ 
+ 
+  // BEN - Display Pizzas
+  const [pizzaList, setPizzaList] = useState([]);
 
+  function getPizzaList() {
+    console.log(`GET /api/pizza request`);
+
+    axios.get('/api/pizza').then((response) => {
+      console.log('GET /api/pizza response data:', response.data);
+
+        setPizzaList(response.data);
+
+    }).catch((error) => {
+      console.log(`/api/pizza GET error`, error);
+      alert(`/api/pizza GET error`);
+    });
+  }
+  // Call your object
+  useEffect(() => {
+    getPizzaList();
+  }, []);
 
   // Customer Information Page
 
@@ -19,14 +46,16 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+      
+      <Header />
+      <ButtonBar />
 
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
       <Router>
-      {/* Display Pizzas */}
+        <Route exact path="/">
+          <PizzaPage 
+            pizzaList={pizzaList}
+          />
+        </Route>
 
       {/* Customer Information Page */}
 
