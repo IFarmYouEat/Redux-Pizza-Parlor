@@ -9,13 +9,13 @@
   }
   
             #pizza-item {
-                border: black 3px solid;
+                border: black 2px solid;
                 width: 350px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 margin: 1% 0%;
-                background-color: #c0bebeAA;
+                background-color: #c0bebe88;
                 border-radius: 20px;
             }
 
@@ -30,7 +30,7 @@
                         #pizza-img {
                             width: 300px;
                             height: auto;
-                            border: darkred 2px solid;
+                            border: black 2px solid;
                             border-radius: 15px;
                         }
 
@@ -47,5 +47,5 @@
                                         height: 45px;
                                         border-radius: 10px;
                                         background-color: #bebe11bb;
-                                        border: 2px #eed141 solid;
+                                        border: 2px black solid;
                                     }
