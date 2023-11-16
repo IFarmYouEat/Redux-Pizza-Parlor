@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 function Header() {
 
     const pizzaOrder = useSelector(store => store.pizzaOrder);
+    
+    
 
     let orderTotal = () => {
         let total = 0;
@@ -14,6 +16,7 @@ function Header() {
         }
         return total;
     }
+
 
     return (
         <div id="App-header">

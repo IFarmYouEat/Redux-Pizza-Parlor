@@ -10,18 +10,18 @@ import App from './components/App/App';
 
 // Ben
 const pizzaOrder = (state = [], action) => {
-    if(action.type === 'ADD_PIZZA') {
+    if (action.type === 'ADD_PIZZA') {
 
         return [...state, action.payload];
     }
-    else if(action.type === 'CLEAR_CART') {
+    else if (action.type === 'CLEAR_CART') {
         return [];
     }
     return state;
 }
 
 const pizzaList = (state = [], action) => {
-    if(action.type === 'SET_PIZZA_LIST') {
+    if (action.type === 'SET_PIZZA_LIST') {
         return action.payload;
     }
     return state;
@@ -33,19 +33,24 @@ const pizzaList = (state = [], action) => {
 
 // Andy
 
-
-
+const customerInfo = (state = {}, action) => {
+    if (action.type === 'SET_CUSTOMER_INFO') {
+        return action.payload;
+    } {
+        return state;
+    }
+}
 
 const reduxStore = createStore(
     combineReducers({
         // Ben
         pizzaList,
-        pizzaOrder
+        pizzaOrder,
 
         // Brock
 
         // Andy
-
+        customerInfo
     }),
     applyMiddleware(logger)
 );

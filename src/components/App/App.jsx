@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
-import { useSelector, useDispatch} from 'react-redux';
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Admin from '../Admin/Admin.jsx'
 import Checkout from '../Checkout/Checkout.jsx'
 
@@ -13,13 +13,15 @@ import PizzaPage from '../PizzaPage/PizzaPage.jsx';
 import Header from '../Header/Header.jsx';
 import ButtonBar from '../ButtonBar/ButtonBar.jsx';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 // END Ben's Imports
 
 
 function App() {
- 
+
   const dispatch = useDispatch();
- 
+  const history = useHistory();
+
   // BEN - Display Pizzas
 
   function fetchPizzaList() {
@@ -41,6 +43,11 @@ function App() {
     fetchPizzaList();
   }, []);
 
+  const nextToCustomerInformation = () => {
+    console.log(`directing to customer information`);
+    history.push('/customerInfo');
+  }
+
   // Customer Information Page
   const customerInfo = useSelector(store => store.customerInfo);
 
@@ -51,7 +58,7 @@ function App() {
 
   return (
     <div className='App'>
-      
+
       <Header />
       <ButtonBar />
 
@@ -59,7 +66,9 @@ function App() {
 
         <Route exact path="/">
           <PizzaPage />
-          <button id="next-btn">NEXT</button>
+          <button id="next-btn">
+            <Link to="/customerInfo">NEXT</Link>
+          </button>
         </Route>
 
 
@@ -68,9 +77,9 @@ function App() {
         <Route exact path="/customerInfo"><CustomerInfo /></Route>
         {/* Checkout Page */}
 
-      {/* Checkout Page */}
-        <Route exact path ="/checkout"><Checkout /></Route>
-        <Route exact path ="/admin"><Admin /></Route>
+        {/* Checkout Page */}
+        <Route exact path="/checkout"><Checkout /></Route>
+        <Route exact path="/admin"><Admin /></Route>
 
       </Router>
     </div>

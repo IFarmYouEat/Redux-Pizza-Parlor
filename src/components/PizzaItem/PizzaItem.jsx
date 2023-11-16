@@ -6,7 +6,7 @@ function PizzaItem(props) {
 
     const dispatch = useDispatch();
 
-    const pizzaToCart = (e) => {
+    const pizzaToCart = () => {
         console.log('pizza price:', props.pizza);
 
     // dispatch
