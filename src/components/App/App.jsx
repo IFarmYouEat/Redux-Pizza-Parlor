@@ -43,7 +43,6 @@ function App() {
 
   // Customer Information Page
   const customerInfo = useSelector(store => store.customerInfo);
-  const dispatch = useDispatch();
 
   // Checkout Page
 
