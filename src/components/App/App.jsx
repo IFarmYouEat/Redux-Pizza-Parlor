@@ -8,10 +8,38 @@ import Admin from '../Admin/Admin.jsx'
 import Checkout from '../Checkout/Checkout.jsx'
 
 
+// Ben's Imports
+import PizzaPage from '../PizzaPage/PizzaPage.jsx';
+import Header from '../Header/Header.jsx';
+import ButtonBar from '../ButtonBar/ButtonBar.jsx';
+import { useEffect } from 'react';
+// END Ben's Imports
+
 
 function App() {
-  // Display Pizzas
+ 
+  const dispatch = useDispatch();
+ 
+  // BEN - Display Pizzas
 
+  function fetchPizzaList() {
+    console.log(`GET /api/pizza request`);
+
+    axios.get('/api/pizza').then((response) => {
+      console.log('GET /api/pizza response data:', response.data);
+
+      dispatch({ type: 'SET_PIZZA_LIST', payload: response.data });
+
+
+    }).catch((error) => {
+      console.log(`/api/pizza GET error`, error);
+      alert(`/api/pizza GET error`);
+    });
+  }
+  // Call your object
+  useEffect(() => {
+    fetchPizzaList();
+  }, []);
 
   // Customer Information Page
   const customerInfo = useSelector(store => store.customerInfo);
@@ -24,14 +52,17 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+      
+      <Header />
+      <ButtonBar />
 
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
       <Router>
-        {/* Display Pizzas */}
+
+        <Route exact path="/">
+          <PizzaPage />
+          <button id="next-btn">NEXT</button>
+        </Route>
+
 
 
         {/* Customer Information Page */}

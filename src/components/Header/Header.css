@@ -1,0 +1,17 @@
+#App-header {
+    background-color: #222;
+    height: 70px;
+    padding: 20px;
+    color: white;
+    margin-bottom: 20px;
+    border: 2px solid yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  #App-title {
+    font-size: 2em;
+  }
+  

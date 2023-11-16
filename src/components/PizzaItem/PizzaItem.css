@@ -1,0 +1,51 @@
+
+#pizza-list {
+    margin: 0% 0.5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+  }
+  
+            #pizza-item {
+                border: black 2px solid;
+                width: 350px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin: 1% 0%;
+                background-color: #c0bebf88;
+                border-radius: 20px;
+            }
+
+                        #pizza-title {
+                            /* border: green 2px solid; */
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin: 1% 6%;
+                        }
+
+                        #pizza-img {
+                            width: 300px;
+                            height: auto;
+                            border: black 2px solid;
+                            border-radius: 15px;
+                        }
+
+                        #pizza-add {
+                            /* border: orange 2px solid; */
+                            align-self: center;
+                            margin-bottom: 5%;
+                            display: flex;
+                            gap: 8%;
+                        }
+
+                                    #addToCart-btn, #removeCart-btn {
+                                        width: 100px;
+                                        height: 45px;
+                                        border-radius: 10px;
+                                        background-color: #bebe11bb;
+                                        border: 2px black solid;
+                                    }

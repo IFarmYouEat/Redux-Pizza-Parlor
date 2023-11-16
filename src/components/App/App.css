@@ -1,15 +1,22 @@
 .App {
   text-align: center;
+  background-image: url(../../Background/woodBackground.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.App-header {
-  background-color: #222;
-  height: 70px;
-  padding: 20px;
-  color: white;
-  margin-bottom: 20px;
+#next-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 10%;
+  height: 8%;
+  background-color: lightblue;
+  border: darkblue 2px solid;
+  border-radius: 10px;
 }
 
-.App-title {
-  font-size: 2em;
-}
+
+
+            
