@@ -7,20 +7,18 @@ function PizzaItem(props) {
     const dispatch = useDispatch();
 
     const pizzaToCart = (e) => {
-        console.log('pizza price:', props.pizza.price);
+        console.log('pizza price:', props.pizza);
 
     // dispatch
-        const action = { type: 'ADD_PIZZA', payload: props.pizza}
-        dispatch(action);
+        dispatch({ type: 'ADD_PIZZA', payload: props.pizza });
     }
 
-    const pizzaFromCart = (e) => {
-        console.log('pizza price:', props.pizza.price);
+    // const pizzaFromCart = (e) => {
+    //     console.log('pizza price:', props.pizza.price);
 
-    // dispatch
-        const action = { type: 'SUBTRACT_PIZZA', payload: props.pizza}
-        dispatch(action);
-    }
+    // // dispatch
+    //     dispatch({ type: 'SUBTRACT_PIZZA', payload: props.pizza });
+    // }
 
     return (
         <div id="pizza-item">
@@ -38,7 +36,7 @@ function PizzaItem(props) {
                 >Add</button>
 
                 <button 
-                    onClick={pizzaFromCart}
+                    // onClick={pizzaFromCart}
                     id="removeCart-btn"
                 >Remove</button>
             </div>

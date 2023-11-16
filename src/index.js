@@ -9,19 +9,18 @@ import './index.css';
 import App from './components/App/App';
 
 // Ben
-const pizzaPrice = (state = 0, action) => {
+const pizzaOrder = (state = [], action) => {
     if(action.type === 'ADD_PIZZA') {
-        // CALCULATIONS HERE
-        return state + Number(action.payload.price);
-    }
-    else if(action.type === 'SUBTRACT_PIZZA') {
-        return state - Number(action.payload.price);
+
+        return [...state, action.payload];
     }
     else if(action.type === 'CLEAR_CART') {
-        return 0;
+        return [];
     }
     return state;
 }
+
+
 
 // Brock
 
@@ -33,7 +32,7 @@ const pizzaPrice = (state = 0, action) => {
 const reduxStore = createStore(
     combineReducers({
         // Ben
-        pizzaPrice
+        pizzaOrder
 
         // Brock
 
