@@ -1,13 +1,17 @@
 
+import { useSelector } from 'react-redux';
+
 // component to display pizzas
 import PizzaItem from '../PizzaItem/PizzaItem.jsx';
 
-function PizzaPage(props) {
+function PizzaPage() {
+
+    const pizzaList = useSelector(store => store.pizzaList);
 
     return (
         <div id="pizza-list">
             {
-                props.pizzaList.map((pizza) => 
+                pizzaList.map((pizza) => 
                 (<PizzaItem 
                     key={pizza.id}
                     pizza={pizza}

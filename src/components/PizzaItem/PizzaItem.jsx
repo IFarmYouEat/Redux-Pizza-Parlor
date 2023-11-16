@@ -13,12 +13,8 @@ function PizzaItem(props) {
         dispatch({ type: 'ADD_PIZZA', payload: props.pizza });
     }
 
-    // const pizzaFromCart = (e) => {
-    //     console.log('pizza price:', props.pizza.price);
+    
 
-    // // dispatch
-    //     dispatch({ type: 'SUBTRACT_PIZZA', payload: props.pizza });
-    // }
 
     return (
         <div id="pizza-item">

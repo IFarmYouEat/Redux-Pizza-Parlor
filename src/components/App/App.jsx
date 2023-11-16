@@ -8,23 +8,24 @@ import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import PizzaPage from '../PizzaPage/PizzaPage.jsx';
 import Header from '../Header/Header.jsx';
 import ButtonBar from '../ButtonBar/ButtonBar.jsx';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 // END Ben's Imports
 
 
 function App() {
  
+  const dispatch = useDispatch();
  
   // BEN - Display Pizzas
-  const [pizzaList, setPizzaList] = useState([]);
 
-  function getPizzaList() {
+  function fetchPizzaList() {
     console.log(`GET /api/pizza request`);
 
     axios.get('/api/pizza').then((response) => {
       console.log('GET /api/pizza response data:', response.data);
 
-        setPizzaList(response.data);
+      dispatch({ type: 'SET_PIZZA_LIST', payload: response.data });
+
 
     }).catch((error) => {
       console.log(`/api/pizza GET error`, error);
@@ -33,7 +34,7 @@ function App() {
   }
   // Call your object
   useEffect(() => {
-    getPizzaList();
+    fetchPizzaList();
   }, []);
 
   // Customer Information Page
@@ -52,9 +53,7 @@ function App() {
 
       <Router>
         <Route exact path="/">
-          <PizzaPage 
-            pizzaList={pizzaList}
-          />
+          <PizzaPage />
           <button id="next-btn">NEXT</button>
         </Route>
 

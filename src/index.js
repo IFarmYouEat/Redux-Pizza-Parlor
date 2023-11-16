@@ -20,6 +20,13 @@ const pizzaOrder = (state = [], action) => {
     return state;
 }
 
+const pizzaList = (state = [], action) => {
+    if(action.type === 'SET_PIZZA_LIST') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 
 // Brock
@@ -32,6 +39,7 @@ const pizzaOrder = (state = [], action) => {
 const reduxStore = createStore(
     combineReducers({
         // Ben
+        pizzaList,
         pizzaOrder
 
         // Brock
