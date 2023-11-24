@@ -7,33 +7,36 @@ function Checkout() {
     const customerInfo = useSelector(store => store.customerInfo)
     const dispatch = useDispatch();
     console.log(customerInfo);
-
-
-    // calculations here
-
-    let pepperoniTotal = () => {
-        let total = 0;
-        let count = 0;
-
-        for(let i = 0; i < pizzaOrder.length; i++) {
-            if(pizzaOrder[i].name === 'Pepperoni') {
-                console.log(pizzaOrder[i].name)
-                total += Number(pizzaOrder[i].price);
-                count += 1;
-            }
-        }
-        console.log('Counting Pepperoni Pizzas', total, count)
-        return { total, count };
-    }
-    let pepperoniPizza = pepperoniTotal();
     
 
-
-
-
+    // calculations here
+    
+    
+    const reformedArray = []
+    
+    let duplicate = false;
+    let location
+    
+    for(let pizza of pizzaOrder){
+        
+        for(let i = 0; i < reformedArray.length; i++){
+            console.log('reformed pizza is', reformedArray[i].id)
+            if(pizza.id === reformedArray[i].id){
+                location = i;
+                duplicate = true;
+            };
+        }
+        if(duplicate === false){
+            reformedArray.push({id: pizza.id, quantity: 1})
+        }else if (duplicate === true){
+            reformedArray[location].quantity ++;
+        }
+        duplicate = false;
+    }
+    
     const submitOrder = () => {
         console.log('Moving items in cart to Server');
-
+        console.log('Reformed Array:', reformedArray)
         // orderTotalfunction
 
         axios.post('/api/order',{
@@ -43,7 +46,7 @@ function Checkout() {
             zip: customerInfo.zip,
             type: customerInfo.type,
             total: 34,
-            pizzas: pizzaOrder
+            pizzas: reformedArray,
         }).then((response) => {
             // TODO Take customer to main page
             let action = {type: 'CLEAR_CART'}
@@ -58,6 +61,7 @@ function Checkout() {
 
     return(
         <div>
+            <table>
             <tbody>
                 {pizzaOrder.map((pizza, index) => 
                 <tr key={index}>
@@ -66,6 +70,7 @@ function Checkout() {
                 </tr>
                 )}
             </tbody>
+            </table>
             <div>
                 <p>{customerInfo.name}</p>
                 <p>{customerInfo.address}</p>
