@@ -23,9 +23,9 @@ function Admin () {
     }
 
     return (
-        <div id='container-div'>
+        <div id='admin-container'>
             <h1>Admin Panel</h1>
-            <div id='table-div'>
+            <div id='admin-div'>
             <table>
                 <thead>
                     <tr>

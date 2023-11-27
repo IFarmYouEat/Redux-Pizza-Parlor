@@ -1,4 +1,4 @@
-#container-div{
+#admin-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,18 +6,18 @@
     
 }
 
-#table-div {
+#admin-div {
     display: flex;
     background-color: #c0bebf88;
     width: auto;
 }
 
-td{
-    padding: 15px;
-}
-
 thead{
     background-color: #c0bebf90;
+}
+
+td{
+    padding: 15px;  
 }
 
 h1{
