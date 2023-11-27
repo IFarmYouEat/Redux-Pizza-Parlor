@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import './Admin.css'
 
 function Admin () {
 
@@ -22,9 +23,9 @@ function Admin () {
     }
 
     return (
-        <div>
-            <p>You are in Admin.</p>
-            {/* {JSON.stringify(orderList)} */}
+        <div id='container-div'>
+            <h1>Admin Panel</h1>
+            <div id='table-div'>
             <table>
                 <thead>
                     <tr>
@@ -45,6 +46,7 @@ function Admin () {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
     )
 }

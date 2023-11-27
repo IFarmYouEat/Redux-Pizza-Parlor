@@ -11,7 +11,6 @@ import Checkout from '../Checkout/Checkout.jsx'
 // Ben's Imports
 import PizzaPage from '../PizzaPage/PizzaPage.jsx';
 import Header from '../Header/Header.jsx';
-import ButtonBar from '../ButtonBar/ButtonBar.jsx';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // END Ben's Imports
@@ -60,7 +59,7 @@ function App() {
     <div className='App'>
 
       <Header />
-      <ButtonBar />
+      
 
       <Router>
 

@@ -1,0 +1,26 @@
+#container-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+    
+}
+
+#table-div {
+    display: flex;
+    background-color: #c0bebf88;
+    width: auto;
+}
+
+td{
+    padding: 15px;
+}
+
+thead{
+    background-color: #c0bebf90;
+}
+
+h1{
+    color: #c0bebf;
+    text-decoration: underline;
+}
